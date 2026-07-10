@@ -2,52 +2,41 @@
 
 雨の池袋を舞台にした、iPhoneブラウザ対応の短編オープンワールド風アクションゲームです。
 
-プレイヤーは徒歩で街を探索し、車両に乗り換え、追跡を振り切って都市回線の復旧データを届けます。実在ブランドや既存ゲームの固有表現は使わず、架空の人物・団体・店舗で構成しています。
+このリポジトリには、GitHub Pagesでそのまま動く単体HTML版を配置しています。
+
+## プレイ
+
+- `index.html` がゲーム本体です。
+- iPhone Safari / Chrome のブラウザで動作するよう、Canvas・タッチ操作・セーフエリア対応で構成しています。
+- GitHub Pages が有効になると、以下のURLで公開されます。
+
+```text
+https://poinkare-kota.github.io/rainline-ikebukuro/
+```
+
+## 操作
+
+- 左スティック: 移動
+- ACTION: 車に乗る / 会話 / 回収
+- DASH / BRAKE: 徒歩ではダッシュ、車ではブレーキ
 
 ## 内容
 
-- Canvasベースの2.5Dゲーム画面
-- iPhone向けタッチ操作
-  - 左スティック
-  - アクションボタン
-  - ダッシュ / ブレーキ
+- 雨の池袋をモチーフにした架空のナイトシティ
 - 徒歩移動、車両操作、追跡、会話、ミッション進行
-- 雨、ネオン、群衆、交通、池袋らしい高密度な街並み
-- 専用生成アセット
-  - タイトル背景
-  - 主人公スプライト
-  - 車両スプライト
-  - 会話ポートレート
-  - OGP画像
+- ネオン、雨、群衆、交通、警戒度、目的地マーカー
+- 依存関係なし。`index.html` だけで動作
 
-## 必要環境
+## GitHub Pages
 
-- Node.js `>=22.13.0`
+`.github/workflows/pages.yml` を追加済みです。GitHub側で Pages が Actions デプロイに設定されていれば、`main` へのpush後に自動公開されます。
 
-## 開発
+もし公開URLが出ない場合は、GitHubのリポジトリ画面で以下を確認してください。
 
-```bash
-npm install
-npm run dev
-```
+1. `Settings` → `Pages`
+2. `Build and deployment` の Source を `GitHub Actions` にする
+3. `Actions` タブで `Deploy GitHub Pages` を手動実行、または次のpushを待つ
 
-このプロジェクトは Vinext / React 構成です。ローカル環境によっては Cloudflare Workers ランタイムの制約で `npm run dev` が動かない場合があります。その場合でも、以下でビルドと検証はできます。
+## 注意
 
-```bash
-npm test
-npm run lint
-```
-
-## 検証
-
-```bash
-npm run typecheck
-npm run test:unit
-npm run build
-npm run test:render
-npm run lint
-```
-
-## 公開について
-
-通常のGitHub Pagesは静的HTML配信のため、このVinextアプリをそのままサーバー実行する用途には向きません。公開する場合は、Sites / Cloudflare Workers互換のホスティングを推奨します。
+実在ブランドや既存ゲームの固有表現は使わず、架空の人物・団体・店舗で構成しています。
